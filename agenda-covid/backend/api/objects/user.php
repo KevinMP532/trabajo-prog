@@ -35,7 +35,9 @@ class User
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->idUsuario = $row['idUsuario'];
-        $this->nombre = $row['nombre'];
+        if ($row != null) {
+            $this->idUsuario = $row['idUsuario'];
+            $this->nombre = $row['nombre'];
+        }
     }
 }
