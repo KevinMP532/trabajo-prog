@@ -40,4 +40,32 @@ class User
             $this->nombre = $row['nombre'];
         }
     }
+
+    // update the product
+    function schedule()
+    {
+
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                telefono = :telefono
+            WHERE
+                idUsuario = :idUsuario";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // sanitize
+        $this->telefono = htmlspecialchars(strip_tags($this->telefono));
+
+        // bind new values
+        $stmt->bindParam(':idUsuario', $this->idUsuario);
+        $stmt->bindParam(':telefono', $this->telefono);
+        // execute the query
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
+    }
 }
