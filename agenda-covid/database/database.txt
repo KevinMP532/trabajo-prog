@@ -1,0 +1,10 @@
+mysql -u root -h localhost -p
+create database agenda_covid;
+create table Grupo (idGrupo INT, nombre VARCHAR(50), activo TINYINT(1), PRIMARY KEY (idGrupo));
+create table Usuario (idUsuario INT, nombre VARCHAR(50), apellido VARCHAR(50), fechaNacimiento DATE, telefono VARCHAR(255), idGrupo INT, activo TINYINT(1), PRIMARY KEY (idUsuario), FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo));
+create table Agenda (idUsuario INT, fechaV1 VARCHAR(50), fechaV2 VARCHAR(50), PRIMARY KEY (idUsuario), FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario));
+
+LOAD DATA INFILE 'D:\xampp\mysql\data\usuarios.csv' into table Usuario
+FIELDS TERMINATED BY ","
+(idUsuario, nombre, apellido, @fechNacVar, telefono, idGrupo, activo)
+set fechaNacimiento = STR_TO_DATE(@fechNacVar,'%m/%d/%Y');
