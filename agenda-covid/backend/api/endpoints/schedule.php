@@ -14,7 +14,21 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
+
 $data = json_decode(file_get_contents("php://input"));
+
+if ($data->idUsuario == null) {
+
+    http_response_code(400);
+    echo json_encode(array("message" => "No value for 'idUsuario' was provided"));
+    return false;
+} else if ($data->telefono == null) {
+
+    http_response_code(400);
+    echo json_encode(array("message" => "No value for 'telefono' was provided"));
+    return false;
+}
+
 $user->idUsuario = $data->idUsuario;
 
 $user->login();
@@ -29,9 +43,7 @@ if ($user->nombre != null) {
 
         http_response_code(200);
         echo json_encode(array("message" => "User was updated."));
-    }
-
-    else {
+    } else {
 
         http_response_code(503);
         echo json_encode(array("message" => "Unable to update user."));
