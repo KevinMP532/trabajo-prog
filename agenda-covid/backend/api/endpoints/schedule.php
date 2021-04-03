@@ -8,6 +8,7 @@ header('Content-Type: application/json');
 
 include_once '../config/database.php';
 include_once '../objects/user.php';
+include_once '../objects/schedule.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -39,10 +40,18 @@ if ($user->nombre != null) {
     $userUpdate->idUsuario = $data->idUsuario;
     $userUpdate->telefono = $data->telefono;
 
-    if ($userUpdate->schedule()) {
+    if ($userUpdate->setPhoneNumber()) {
+        $schedule = new Schedule($db);
+        $schedule->idUsuario = $data->idUsuario;
+        $fechaV1 =  date('Y.m.d', strtotime('+7 days'));
+        $fechaV2 = date('Y.m.d', strtotime("+37 days",));
+        $schedule->fechaV1 = $fechaV1;
+        $schedule->fechaV2 = $fechaV2;
 
-        http_response_code(200);
-        echo json_encode(array("message" => "User was updated."));
+        if ($schedule->schedule()) {
+            http_response_code(200);
+            echo json_encode(array("message" => "User scheduled successufully"));
+        }
     } else {
 
         http_response_code(503);

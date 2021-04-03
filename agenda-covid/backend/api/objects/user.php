@@ -42,7 +42,7 @@ class User
     }
 
     // update the product
-    function schedule()
+    function setPhoneNumber()
     {
 
         $query = "UPDATE
@@ -68,4 +68,6 @@ class User
 
         return false;
     }
+
+    // create product
 }
