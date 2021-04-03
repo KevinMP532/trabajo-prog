@@ -21,7 +21,7 @@ $user->login();
   
 if($user->nombre!=null){
     $user_arr = array(
-        "idUsuario" =>  $user->idUsuario,
+        "idUsuario" => $user->idUsuario,
         "nombre" => $user->nombre  
     );
   
