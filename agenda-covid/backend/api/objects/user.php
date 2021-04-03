@@ -41,10 +41,8 @@ class User
         }
     }
 
-    // update the product
     function setPhoneNumber()
     {
-
         $query = "UPDATE
                 " . $this->table_name . "
             SET
@@ -52,22 +50,17 @@ class User
             WHERE
                 idUsuario = :idUsuario";
 
-        // prepare query statement
         $stmt = $this->conn->prepare($query);
 
-        // sanitize
         $this->telefono = htmlspecialchars(strip_tags($this->telefono));
 
-        // bind new values
         $stmt->bindParam(':idUsuario', $this->idUsuario);
         $stmt->bindParam(':telefono', $this->telefono);
-        // execute the query
+
         if ($stmt->execute()) {
             return true;
         }
 
         return false;
     }
-
-    // create product
 }
