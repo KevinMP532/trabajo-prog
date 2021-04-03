@@ -40,9 +40,7 @@ if ($user->nombre != null) {
     $userUpdate->idUsuario = $data->idUsuario;
     $userUpdate->telefono = $data->telefono;
 
-    if ($userUpdate->setPhoneNumber()) {
         $schedule = new Schedule($db);
-
         $schedule->idUsuario = $data->idUsuario;
         $fechaV1 =  date('Y.m.d', strtotime('+7 days'));
         $fechaV2 = date('Y.m.d', strtotime("+37 days",));
@@ -51,6 +49,7 @@ if ($user->nombre != null) {
         $schedule->scheduleCheck();
         if ($schedule->idUsuario == "not found") {
             $schedule->idUsuario = $data->idUsuario;
+            $userUpdate->setPhoneNumber();
             if ($schedule->schedule()) {
                 http_response_code(200);
                 echo json_encode(array("message" => "User scheduled successufully"));
@@ -60,7 +59,7 @@ if ($user->nombre != null) {
             http_response_code(400);
             echo json_encode(array("message" => "User has already been scheduled"));
         }
-    }
+    
 } else {
 
     http_response_code(404);
