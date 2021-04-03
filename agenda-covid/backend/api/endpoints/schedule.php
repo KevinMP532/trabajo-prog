@@ -42,20 +42,24 @@ if ($user->nombre != null) {
 
     if ($userUpdate->setPhoneNumber()) {
         $schedule = new Schedule($db);
+
         $schedule->idUsuario = $data->idUsuario;
         $fechaV1 =  date('Y.m.d', strtotime('+7 days'));
         $fechaV2 = date('Y.m.d', strtotime("+37 days",));
         $schedule->fechaV1 = $fechaV1;
         $schedule->fechaV2 = $fechaV2;
+        $schedule->scheduleCheck();
+        if ($schedule->idUsuario == "not found") {
+            $schedule->idUsuario = $data->idUsuario;
+            if ($schedule->schedule()) {
+                http_response_code(200);
+                echo json_encode(array("message" => "User scheduled successufully"));
+            }
+        } else {
 
-        if ($schedule->schedule()) {
-            http_response_code(200);
-            echo json_encode(array("message" => "User scheduled successufully"));
+            http_response_code(400);
+            echo json_encode(array("message" => "User has already been scheduled"));
         }
-    } else {
-
-        http_response_code(503);
-        echo json_encode(array("message" => "Unable to update user."));
     }
 } else {
 

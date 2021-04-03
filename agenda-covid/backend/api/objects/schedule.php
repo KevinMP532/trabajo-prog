@@ -36,4 +36,30 @@ class Schedule
 
         return false;
     }
+
+    function scheduleCheck()
+    {
+
+        $query = "SELECT
+                 agenda.idUsuario
+            FROM
+                agenda
+            WHERE
+                idUsuario = ?
+            ";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $this->idUsuario);
+
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row != null) {
+            $this->idUsuario = $row['idUsuario'];
+        }else{
+            $this->idUsuario = "not found";
+        }
+    }
 }
