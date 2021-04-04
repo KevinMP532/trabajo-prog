@@ -55,8 +55,24 @@ class Schedule
             $this->idUsuario = $row['idUsuario'];
             $this->fechaV1 = $row['fechaV1'];
             $this->fechaV2 = $row['fechaV2'];
-        }else{
+        } else {
             $this->idUsuario = "not found";
         }
+    }
+
+    function Scheduledelete()
+    {
+
+        $query = "DELETE FROM agenda WHERE idUsuario = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $this->idUsuario);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
     }
 }
