@@ -18,7 +18,7 @@ class countByGroup
     }
     function countByGroup()
     {
-        for ($counter = 0; $counter < 8; $counter++) {
+        for ($counter = 1; $counter < 8; $counter++) {
 
             $query = "SELECT COUNT(idGrupo)
             FROM
