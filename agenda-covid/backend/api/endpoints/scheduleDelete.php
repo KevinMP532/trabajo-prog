@@ -29,11 +29,11 @@ if ($Schedule->fechaV1 != null) {
             echo json_encode(array("message" => "Could not delete schedule."));
         };
     } else {
-        http_response_code(404);
+        http_response_code(200);
         echo json_encode(array("message" => "V1 date has already passed, deletion not performed."));
     };
 } else {
 
-    http_response_code(404);
+    http_response_code(200);
     echo json_encode(array("message" => "User schedule not found."));
 }

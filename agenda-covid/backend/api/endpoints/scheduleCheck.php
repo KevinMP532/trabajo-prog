@@ -32,7 +32,7 @@ if($Schedule->fechaV1!=null){
   
 else{
 
-    http_response_code(404);
+    http_response_code(200);
     echo json_encode(array("message" => "User schedule not found."));
 }
 ?>
