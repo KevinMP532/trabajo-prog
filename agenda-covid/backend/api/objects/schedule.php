@@ -36,7 +36,7 @@ class Schedule
     {
 
         $query = "SELECT
-                 agenda.idUsuario
+                 *
             FROM
                 agenda
             WHERE
@@ -53,6 +53,8 @@ class Schedule
 
         if ($row != null) {
             $this->idUsuario = $row['idUsuario'];
+            $this->fechaV1 = $row['fechaV1'];
+            $this->fechaV2 = $row['fechaV2'];
         }else{
             $this->idUsuario = "not found";
         }
