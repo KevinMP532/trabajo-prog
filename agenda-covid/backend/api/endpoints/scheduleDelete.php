@@ -23,7 +23,7 @@ if ($Schedule->fechaV1 != null) {
     if ($Schedule->fechaV1 > date("Y.m.d")) {
         if ($Schedule->Scheduledelete()) {
             http_response_code(200);
-            echo json_encode(array("message" => "Schedule deleted successfully"));
+            echo json_encode(array("message" => "Schedule deleted successfully."));
         } else {
             http_response_code(200);
             echo json_encode(array("message" => "Could not delete schedule."));
