@@ -203,3 +203,7 @@ body{
     justify-content:space-between;
     height: 10%;
 }
+
+  #loading {
+    display: none;
+  }
