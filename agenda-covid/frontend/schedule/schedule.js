@@ -7,18 +7,15 @@ form.addEventListener('submit', function (e) {
     e.preventDefault();
 })
 
-let url = "http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/schedule.php";
+let url = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/verifyID.php";
 verificar = () => {
     loading.style.display = 'block';
-    axios.get(url, {
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        "idUsuario": "12345678"
+    axios.post(url, {
+        idUsuario: 12345678
     })
         .then(function (res) {
             if (res.status == 200) {
-                mensaje.innerHTML = res.data;
+                mensaje.innerHTML = "Welcome "+res.data.nombre+" have a nice day";
             }
             console.log(res);
         })
