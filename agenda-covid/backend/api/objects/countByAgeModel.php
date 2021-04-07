@@ -26,7 +26,7 @@ class countByAge
             switch ($counter) {
                 case (1):
 
-                    $query = "SELECT COUNT(fechaNacimiento) FROM usuario WHERE fechaNacimiento BETWEEN '" . $date30 . "' AND '" . $date18 . "'";
+                    $query = "SELECT COUNT(fechaNacimiento) FROM usuario INNER JOIN agenda ON agenda.idUsuario=usuario.idUsuario WHERE fechaNacimiento BETWEEN '" . $date30 . "' AND '" . $date18 . "'";
 
                     $stmt = $this->conn->prepare($query);
 
@@ -42,7 +42,7 @@ class countByAge
                     break;
                 case (2):
 
-                    $query = "SELECT COUNT(fechaNacimiento) FROM usuario WHERE fechaNacimiento BETWEEN '" . $date50 . "' AND '" . $date30 . "'";
+                    $query = "SELECT COUNT(fechaNacimiento) FROM usuario INNER JOIN agenda ON agenda.idUsuario=usuario.idUsuario WHERE fechaNacimiento BETWEEN '" . $date50 . "' AND '" . $date30 . "'";
 
                     $stmt = $this->conn->prepare($query);
 
@@ -58,7 +58,7 @@ class countByAge
                     break;
                 case (3):
 
-                    $query = "SELECT COUNT(fechaNacimiento) FROM usuario WHERE fechaNacimiento BETWEEN '" . $date65 . "' AND '" . $date50 . "'";
+                    $query = "SELECT COUNT(fechaNacimiento) FROM usuario INNER JOIN agenda ON agenda.idUsuario=usuario.idUsuario WHERE fechaNacimiento BETWEEN '" . $date65 . "' AND '" . $date50 . "'";
 
                     $stmt = $this->conn->prepare($query);
 
