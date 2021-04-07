@@ -17,13 +17,13 @@ $groupCount->countByGroup();
 
 
 $groupCount_arr = array(
-    "Personal CTI" => $groupCount->group1Count,
+    "Personal_CTI" => $groupCount->group1Count,
     "Hisopadores" => $groupCount->group2Count,
-    "Personal Salud General" => $groupCount->group3Count,
-    "Personal Educacion" => $groupCount->group4Count,
+    "Personal_Salud_General" => $groupCount->group3Count,
+    "Personal_Educacion" => $groupCount->group4Count,
     "Bomberos" => $groupCount->group5Count,
     "Policia" => $groupCount->group6Count,
-    "Personal Residencia" => $groupCount->group7Count,
+    "Personal_Residencia" => $groupCount->group7Count,
 );
 http_response_code(200);
 echo json_encode($groupCount_arr);

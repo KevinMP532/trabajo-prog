@@ -17,9 +17,9 @@ $groupCount->countByAge();
 
 
 $groupCount_arr = array(
-    "Entre 18 y 30" => $groupCount->group1,
-    "Entre 31 y 50" => $groupCount->group2,
-    "Entre 51 y 65" => $groupCount->group3,
+    "Entre_18_y_30" => $groupCount->group1,
+    "Entre_31_y_50" => $groupCount->group2,
+    "Entre_51_y_65" => $groupCount->group3,
 );
 http_response_code(200);
 echo json_encode($groupCount_arr);

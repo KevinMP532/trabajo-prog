@@ -42,7 +42,7 @@ if ($user->nombre != null) {
     $schedule = new Schedule($db);
     $schedule->idUsuario = $data->idUsuario;
     $fechaV1 =  date('Y.m.d', strtotime('+7 days'));
-    $fechaV2 = date('Y.m.d', strtotime("+37 days",));
+    $fechaV2 = date('Y.m.d', strtotime("+37 days"));
     $schedule->fechaV1 = $fechaV1;
     $schedule->fechaV2 = $fechaV2;
     $schedule->scheduleCheck();

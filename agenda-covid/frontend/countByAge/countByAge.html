@@ -15,21 +15,20 @@
         <div class="container-form">
             <div class="container-head-forms">
                 <div class="container-title">
-                    <h1 class="title">Borrar</h1>
+                    <h1 class="title">Cant. de personas por edad</h1>
                 </div>
                 <div class="container-icon">
                     <i onclick="showMenu()" class="fas fa-bars icon-menu"></i>
                 </div>
             </div>
             <form id="form">
-                <p id="mensaje"></p>
-                <div class="sec-input">
-                    <label id="lbl-cedula" for="cedula">Ingrese su cédula</label>
-                    <input id="input-cedula" onkeypress="return event.charCode >= 48" min="0" type="number" name="cedula" value="">
-                </div>
-                <p id="error-message"></p>
+                <ul>
+                    <li id="mensaje" class="cant-grupos"></li>
+                    <li id="mensaje2" class="cant-grupos"></li>
+                    <li id="mensaje3" class="cant-grupos"></li>
+                </ul>
                 <p id="loading">cargando...</p>
-                <button id="btn-verificar" class="btn-form" onclick="borrar()">Consultar</button>
+                <button id="btn-verificar" class="btn-form" onclick="consultar()">Consultar</button>
             </form>
         </div>
         <div id="header" class="header" style="display: none;">
@@ -50,6 +49,6 @@
 </body>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="scheduleDelete.js"></script>
+<script src="countByAge.js"></script>
 
 </html>

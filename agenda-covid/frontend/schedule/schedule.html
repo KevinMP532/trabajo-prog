@@ -7,19 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule</title>
     <link rel="stylesheet" href="../css/schedule.css">
+    <script src="https://kit.fontawesome.com/6745498fd9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="body-form">
         <div class="container-form">
-            <h1 class="title">Agendarse</h1>
+            <div class="container-head-forms">
+                <div class="container-title">
+                    <h1 class="title">Agendarse</h1>
+                </div>
+                <div class="container-icon">
+                    <i onclick="showMenu()" class="fas fa-bars icon-menu"></i>
+                </div>
+            </div>
             <form id="form">
-                <label for="cedula">Ingrese su cedula</label>
-                <input id="input-cedula" type="number" name="cedula" value=""><br>
+                <p id="mensaje"></p>
+                <label id="lbl-cedula" for="cedula">Ingrese su cédula</label>
+                <label id="lbl-tel" for="telefono" class="form-agendarse">Ingrese su teléfono</label>
+                <input id="input-cedula" onkeypress="return event.charCode >= 48" min="0" placeholder="Ej: 53780034"
+                    type="number" name="cedula" value="">
+                <input id="input-telefono" class="form-agendarse" onkeypress="return event.charCode >= 48" min="0"
+                    type="number" name="telefono" value="">
+                <label id="error-message"></label>
+                <p id="loading">cargando...</p>
                 <button id="btn-verificar" class="btn-form" onclick="verificar()">Verificar</button>
-                <div id="mensaje"></div>
-                <div id="loading">cargando...</div>
+                <button id="btn-agendar" class="btn-form form-agendarse" onclick="agendarse()">Agendar</button>
             </form>
+        </div>
+        <div id="header" class="header" style="display: none;">
+            <div class="container-header logo-nav-container">
+                <nav class="navigation">
+                    <ul>
+                        <li id="btn1"><a onclick="carusel(1)" href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html">Home</a></li>
+                        <li id="btn1"><a onclick="carusel(1)" href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/schedule/schedule.html">Schedule</a></li>
+                        <li id="btn2"><a onclick="carusel(2)" href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/scheduleCheck/scheduleCheck.html">ScheduleCheck</a></li>
+                        <li id="btn3"><a onclick="carusel(3)" href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/scheduleDelete/scheduleDelete.html">ScheduleDelete</a></li>
+                        <li id="btn4"><a onclick="carusel(4)" href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/countByGroup/countByGroup.html">Count by group</a></li>
+                        <li id="btn5"><a onclick="carusel(5)" href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/countByAge/countByAge.html">Count by age</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </body>

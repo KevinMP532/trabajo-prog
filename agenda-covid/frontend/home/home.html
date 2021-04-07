@@ -7,64 +7,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="../css/schedule.css">
+    <script src="https://kit.fontawesome.com/6745498fd9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-        <div id="container">
-            <center>
-                <h1 id="title" class="titlee">Welcome to agenda covid Anima</h1>
-            </center>
-            <div class="info">
-                <div id="inicio" class=" activo">
-                    <p>Agenda covid Anima es una pagina que inicia a raiz de una tarea pedida en
-                        conjunto por el profesor ... de la materia Programacion Web y el profesor ... de la materia
-                        Desarollo
-                        Web.
-                        Aqui puedes realizar 5 actividades:
-                    </p>
-                    <ul>
-                        <li>Agendarme ingresando CI.</li>
-                        <li>Consultar agenda.</li>
-                        <li>Borrar agenda.</li>
-                        <li>Consultar cantidad de usuarios agendados por grupo.</li>
-                        <li>Consultar cantidad de usuarios por grupo de edad.</li>
-                    </ul>
-                    <p>Para informacion detallada de cada actividad navegue con los botones de abajo</p>
-                
-                </div>
-                <div id="inac1" class=" inactivo ">
-                    <p>Agendarse con CI:</p>
-                    <a href="http://localhost/progweb/agenda-covid/frontend/schedule/schedule.php"><button class="prev-next ir">Ir</button></a>
-                </div>
-                <div id="inac2" class=" inactivo ">
-                    <p>Consultar agenda:</p>
-                    <a href="http://localhost/progweb/agenda-covid/frontend/consultar/consultar.php"><button class="prev-next ir">Ir</button></a>
-                </div>
-                <div id="inac3" class=" inactivo ">
-                    <p>Borrar agenda:</p>
-                    <a href="http://localhost/progweb/agenda-covid/frontend/borrar/borrar.php"><button class="prev-next ir">Ir</button></a>
-                </div>
-                <div id="inac4" class=" inactivo ">
-                    <p>Cant. usuarios por grupo:</p>
-                    <a href="http://localhost/progweb/agenda-covid/frontend/mostrar/mostrar.php"><button class="prev-next ir">Ir</button></a>
-                </div>
-                <div id="inac5" class=" inactivo ">
-                    <p>Cant. usuarios por edad:</p>
-                    <a href="file:///C:/Users/andrew.martinez/Desktop/Programacion%20Web/agenda-covid/frontend/coexion/mostrar.html"><button class="prev-next ir">Ir</button></a>
-                </div>
-            </div>
-            <div class="footer">
-                <button id="btn-prev" class="prev-next" disabled="true" onclick="atras()"> Preview </button>
-                <button class="btns-opciones" value="1" onclick="carusel(1)">Agendarse con CI</button>
-                <button class="btns-opciones" value="2" onclick="carusel(2)">Consultar agenda</button>
-                <button class="btns-opciones" value="3" onclick="carusel(3)">Borrar agenda</button>
-                <button class="btns-opciones" value="4" onclick="carusel(4)">Cant. usuarios por grupo</button>
-                <button class="btns-opciones" value="5" onclick="carusel(5)">Cant. usuarios por edad</button>
-                <button class="prev-next next" onclick="adelante()"> Next </button>
-            </div>
+    <header class="header">
+        <div class="container-header logo-nav-container">
+            <a onclick="carusel(0)" href="#home" class="logo">Agenda Covid</a>
+            <nav class="navigation">
+                <ul>
+                    <li id="btn1"><a onclick="carusel(1)" href="#schedule">Schedule</a></li>
+                    <li id="btn2"><a onclick="carusel(2)" href="#scheduleCheck">ScheduleCheck</a></li>
+                    <li id="btn3"><a onclick="carusel(3)" href="#scheduleDelete">ScheduleDelete</a></li>
+                    <li id="btn4"><a onclick="carusel(4)" href="#countByGroup">Count by group</a></li>
+                    <li id="btn5"><a onclick="carusel(5)" href="#countByAge">Count by age</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+    <main class="main">
+        <section id="home" class="sec-home" style="height: 100vh; background-color: #6c757d;">
+            <div class="container-Inicio">
+                <h1> Welcome to agenda covid</h1>
+                <p>Agenda covid Anima es una pagina que inicia a raíz de una tarea pedida en
+                    conjunto por los profesores <strong>Rodrigo Albano</strong> de la materia Programación Web y
+                    <strong>Santiago Chabert</strong> de la materia
+                    Desarollo Web.
+                    Aquí puedes realizar 5 actividades:
+                </p>
+                <ul>
+                    <li><a href="#schedule">Agendarme ingresando CI.</a></li>
+                    <li><a href="#scheduleCheck">Consultar agenda.</a></li>
+                    <li><a href="#scheduleDelete">Borrar agenda.</a></li>
+                    <li><a href="#countByGroup">Consultar cantidad de usuarios agendados por grupo.</a></li>
+                    <li><a href="#countByAge">Consultar cantidad de usuarios por grupo de edad.</a></li>
+                </ul>
+                <p>Por información detallada de cada actividad utilice los botones de navegación</p>
+            </div>
+        </section>
+        <section id="schedule" class="sec-1" style="height: 100vh; background-color: #adb5bd;">
+            <div class="container" style="color: #e9ecef;">
+                <h1 class="subtitle">Schedule</h1>
+                <div class="container-text">
+                    <p class="text">En éste apartado te podes agendar siempre y cuando estés registrado como usuario
+                        usando tu cédula y tu número de télefono.</p>
+                </div>
+                <div class="container-btn">
+                    <a
+                        href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/schedule/schedule.html#schedule">
+                        <button class="btn-ir">Ir</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="scheduleCheck" class="sec-2" style="height: 100vh; background-color: #ced4da;">
+            <div class="container" style="color: #6c757d;">
+                <h1 class="subtitle">Schedule Check</h1>
+                <div class="container-text">
+                    <p class="text">En éste apartado podes consultar tu agenda usando tu cédula y se te mostrará las 2
+                        fechas las cuales tenes que asistir a vacunarte.</p>
+                </div>
+                <div class="container-btn">
+                    <a
+                        href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/scheduleCheck/scheduleCheck.html#schedule">
+                        <button class="btn-ir">Ir</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="scheduleDelete" class="sec-3" style="height: 100vh; background-color: #dee2e6;">
+            <div class="container" style="color: #495057;">
+                <h1 class="subtitle">Schedule Delete</h1>
+                <div class="container-text">
+                    <p class="text">En éste apartado podes eliminar tu agenda usando tu cédula.</p>
+                </div>
+                <div class="container-btn">
+                    <a
+                        href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/scheduleDelete/scheduleDelete.html#schedule">
+                        <button class="btn-ir">Ir</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="countByGroup" class="sec-4" style="height: 100vh; background-color: #e9ecef;">
+            <div class="container" style="color: #343a40;">
+                <h1 class="subtitle">Count by Group</h1>
+                <div class="container-text">
+                    <p class="text">Éste apartado te mostrará la cantidad de personas que hay por grupo.</p>
+                </div>
+                <div class="container-btn">
+                    <a
+                        href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/countByGroup/countByGroup.html#schedule">
+                        <button class="btn-ir">Ir</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="countByAge" class="sec-5" style="height: 100vh; background-color: #f8f9fa;">
+            <div class="container" style="color: #212529;">
+                <h1 class="subtitle">Count by Age</h1>
+                <div class="container-text">
+                    <p class="text">Éste apartado te mostrará la cantidad de personas que hay agendadas por edad.</p>
+                </div>
+                <div class="container-btn">
+                    <a
+                        href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/countByAge/countByAge.html#schedule">
+                        <button class="btn-ir">Ir</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footerr">
+        <button id="btn-up" class="inactivo-btn" onclick="up()"><i class="fas fa-angle-up"></i></button>
+        <button id="btn-down" class="btn-home-down" onclick="down()"><i class="fas fa-angle-down"></i></button>
+    </footer>
+
 </body>
 
-<script src="./js/home.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<script src="home.js"></script>
 
 </html>
