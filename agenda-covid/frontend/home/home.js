@@ -6,6 +6,7 @@ let btn2 = document.getElementById("btn2")
 let btn3 = document.getElementById("btn3")
 let btn4 = document.getElementById("btn4")
 let btn5 = document.getElementById("btn5")
+let btn6 = document.getElementById("btn6")
 
 var controller = new ScrollMagic.Controller();
 var scene
@@ -27,10 +28,10 @@ scene = new ScrollMagic.Scene({ triggerElement: '.sec-4' }).setClassToggle(btn4,
 
 scene = new ScrollMagic.Scene({ triggerElement: '.sec-5' }).setClassToggle(btn4, 'inactivo').addTo(controller);
 scene = new ScrollMagic.Scene({ triggerElement: '.sec-5' }).setClassToggle(btn5, 'activo').addTo(controller);
-scene = new ScrollMagic.Scene({ triggerElement: '.sec-5' }).setClassToggle(btnDown, 'inactivo-btn').addTo(controller);
-scene = new ScrollMagic.Scene({ triggerElement: '.sec-5' }).setClassToggle(btnUp, 'btn-home-up').addTo(controller);
 
-let num = 0;
+scene = new ScrollMagic.Scene({ triggerElement: '.sec-6' }).setClassToggle(btn6, 'on').addTo(controller);
+scene = new ScrollMagic.Scene({ triggerElement: '.sec-6' }).setClassToggle(btnDown, 'inactivo-btn').addTo(controller);
+scene = new ScrollMagic.Scene({ triggerElement: '.sec-6' }).setClassToggle(btnUp, 'btn-home-up').addTo(controller);
 
 function carusel(numero) {
     num = numero
@@ -40,28 +41,33 @@ function carusel(numero) {
             break;
 
         case 1:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#schedule";
+            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#register";
             break;
 
         case 2:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#scheduleCheck";
+            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#schedule";
             break;
 
         case 3:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#scheduleDelete";
+            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#scheduleCheck";
             break;
 
         case 4:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#countByGroup";
+            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#scheduleDelete";
             break;
 
         case 5:
+            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#countByGroup"
+            break;
+
+        case 6:
             window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#countByAge"
             break;
     }
 }
-
+let num = 0;
 down = () => {
+
     if (btn1.className == "activo") {
         num = 1
     } else if (btn2.className == "activo") {
@@ -70,34 +76,34 @@ down = () => {
         num = 3
     } else if (btn4.className == "activo") {
         num = 4
+    } else if (btn6.className == "on" &&  btn5.className == "activo") {
+        num = 6
     } else if (btn5.className == "activo") {
         num = 5
-    }
-
+    }  
     num = num + 1
-    if (num === 6) {
-        num = 5
+    if (num === 7) {
+        num = 6
     }
     carusel(num);
 }
 
 up = () => {
+
     if (btn1.className == "activo") {
         num = 1
-    } else if (btn2.className == "activo") {
+    } else if (btn2.className == "activos") {
         num = 2
     } else if (btn3.className == "activo") {
         num = 3
     } else if (btn4.className == "activo") {
         num = 4
+    } else if (btn6.className == "on" &&  btn5.className == "activo") {
+        num = 6
     } else if (btn5.className == "activo") {
         num = 5
-    }
-    if (num === 0) {
-        num = 4
-    } else {
-        num = num - 1
-    }
+    }  
+    num = num - 1
     if (num === -1) {
         num = 0
     }

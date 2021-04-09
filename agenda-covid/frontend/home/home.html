@@ -18,11 +18,16 @@
             <a onclick="carusel(0)" href="#home" class="logo-id">Agenda Covid</a>
             <nav class="navigation">
                 <ul>
-                    <li id="btn1"><a onclick="carusel(1)" href="#schedule">Schedule</a></li>
-                    <li id="btn2"><a onclick="carusel(2)" href="#scheduleCheck">ScheduleCheck</a></li>
-                    <li id="btn3"><a onclick="carusel(3)" href="#scheduleDelete">ScheduleDelete</a></li>
-                    <li id="btn4"><a onclick="carusel(4)" href="#countByGroup">Count by group</a></li>
-                    <li id="btn5"><a onclick="carusel(5)" href="#countByAge">Count by age</a></li>
+                    <li id="btn1"><a onclick="carusel(1)" href="#register">Registro</a></li>
+                    <li id="btn2"><a onclick="carusel(2)" href="#schedule">Agenda</a></li>
+                    <li id="btn3"><a onclick="carusel(3)" href="#scheduleCheck">Consultar agenda</a></li>
+                    <li id="btn4"><a onclick="carusel(4)" href="#scheduleDelete">Borrar agenda</a></li>
+                    <li id="btn5"><a>Cantidad</a>
+                        <ul>
+                            <li><a id="btn6" onclick="carusel(5)" href="#countByGroup">Cant. por grupo</a></li>
+                            <li><a id="btn7" onclick="carusel(6)" href="#countByAge">Cant. por edad</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -38,6 +43,7 @@
                     Aquí puedes realizar 5 actividades:
                 </p>
                 <ul>
+                    <li><a href="#schedule">Registarme</a></li>
                     <li><a href="#schedule">Agendarme ingresando CI.</a></li>
                     <li><a href="#scheduleCheck">Consultar agenda.</a></li>
                     <li><a href="#scheduleDelete">Borrar agenda.</a></li>
@@ -47,9 +53,24 @@
                 <p>Por información detallada de cada actividad utilice los botones de navegación</p>
             </div>
         </section>
-        <section id="schedule" class="sec-1" style="height: 100vh; background-color: #adb5bd;">
+        <section id="register" class="sec-1" style="height: 100vh; background-color: #9aa1a8;">
             <div class="container" style="color: #e9ecef;">
-                <h1 class="subtitle">Schedule</h1>
+                <h1 class="subtitle">Registro</h1>
+                <div class="container-text">
+                    <p class="text">Éste apartado te solicita tu cédula, nombre, apellido, fecha de nacimiento y tu
+                        grupo para poder registrarte.</p>
+                </div>
+                <div class="container-btn">
+                    <a
+                        href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/register/register.html#schedule">
+                        <button class="btn-ir">Ir</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="schedule" class="sec-2" style="height: 100vh; background-color: #adb5bd;">
+            <div class="container" style="color: #e9ecef;">
+                <h1 class="subtitle">Agenda</h1>
                 <div class="container-text">
                     <p class="text">En éste apartado te podes agendar siempre y cuando estés registrado como usuario
                         usando tu cédula y tu número de télefono.</p>
@@ -62,9 +83,9 @@
                 </div>
             </div>
         </section>
-        <section id="scheduleCheck" class="sec-2" style="height: 100vh; background-color: #ced4da;">
+        <section id="scheduleCheck" class="sec-3" style="height: 100vh; background-color: #ced4da;">
             <div class="container" style="color: #6c757d;">
-                <h1 class="subtitle">Schedule Check</h1>
+                <h1 class="subtitle">Consultar</h1>
                 <div class="container-text">
                     <p class="text">En éste apartado podes consultar tu agenda usando tu cédula y se te mostrará las 2
                         fechas las cuales tenes que asistir a vacunarte.</p>
@@ -77,9 +98,9 @@
                 </div>
             </div>
         </section>
-        <section id="scheduleDelete" class="sec-3" style="height: 100vh; background-color: #dee2e6;">
+        <section id="scheduleDelete" class="sec-4" style="height: 100vh; background-color: #dee2e6;">
             <div class="container" style="color: #495057;">
-                <h1 class="subtitle">Schedule Delete</h1>
+                <h1 class="subtitle">Borrar</h1>
                 <div class="container-text">
                     <p class="text">En éste apartado podes eliminar tu agenda usando tu cédula.</p>
                 </div>
@@ -91,9 +112,9 @@
                 </div>
             </div>
         </section>
-        <section id="countByGroup" class="sec-4" style="height: 100vh; background-color: #e9ecef;">
+        <section id="countByGroup" class="sec-5" style="height: 100vh; background-color: #e9ecef;">
             <div class="container" style="color: #343a40;">
-                <h1 class="subtitle">Count by Group</h1>
+                <h1 class="subtitle">Cant. de usuarios por grupo</h1>
                 <div class="container-text">
                     <p class="text">Éste apartado te mostrará la cantidad de personas que hay por grupo.</p>
                 </div>
@@ -105,9 +126,9 @@
                 </div>
             </div>
         </section>
-        <section id="countByAge" class="sec-5" style="height: 100vh; background-color: #f8f9fa;">
+        <section id="countByAge" class="sec-6" style="height: 100vh; background-color: #f8f9fa;">
             <div class="container" style="color: #212529;">
-                <h1 class="subtitle">Count by Age</h1>
+                <h1 class="subtitle">Cant. de usuarios por edad</h1>
                 <div class="container-text">
                     <p class="text">Éste apartado te mostrará la cantidad de personas que hay agendadas por edad.</p>
                 </div>

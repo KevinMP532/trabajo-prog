@@ -21,7 +21,6 @@ showMenu = () => {
         divContForm.className = 'container-form'
         body.className = 'body-form'
     }
-
 }
 
 let urlAge = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/countByAge.php";
@@ -31,9 +30,9 @@ consultar = () => {
             mensaje.style.display = 'block';
             mensaje2.style.display = 'block';
             mensaje3.style.display = 'block';
-            mensaje.innerHTML = "Entre los 18 y 30 años hay "+res.data.Entre_18_y_30+" personas."
-            mensaje2.innerHTML = "Entre los 31 y 50 años hay "+res.data.Entre_31_y_50+" personas."
-            mensaje3.innerHTML = "Entre los 51 y 65 años hay "+res.data.Entre_51_y_65+" personas." 
+            mensaje.innerHTML = "Entre los 18 y 30 años hay " + res.data.Entre_18_y_30 + " personas."
+            mensaje2.innerHTML = "Entre los 31 y 50 años hay " + res.data.Entre_31_y_50 + " personas."
+            mensaje3.innerHTML = "Entre los 51 y 65 años hay " + res.data.Entre_51_y_65 + " personas."
             console.log(res);
         })
         .catch(function (err) {

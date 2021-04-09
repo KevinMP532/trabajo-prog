@@ -1,8 +1,8 @@
-var loading = document.getElementById('loading');
-var mensaje = document.getElementById('mensaje-schedule');
-var mensajeError = document.getElementById('error-message');
+let loading = document.getElementById('loading');
+let mensaje = document.getElementById('mensaje-schedule');
+let mensajeError = document.getElementById('error-message');
 
-var form = document.getElementById('form');
+let form = document.getElementById('form');
 form.addEventListener('submit', function (e) {
     e.preventDefault();
 })

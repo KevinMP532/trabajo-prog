@@ -48,7 +48,7 @@ showMenu = () => {
 }
 
 
-let urlCheck = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleCheck.php";
+let urlCheck = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/register.php";
 registrar = () => {
     mensaje.style.display = 'none';
     if (inpNombre == "" || inpApellido == "" || inpFechaNac == "" || inpIdGrupo == "") {
@@ -63,14 +63,20 @@ registrar = () => {
         mensajeError.style.display = 'none';
         loading.style.display = 'block';
         axios.post(urlCheck, {
-            idUsuario: cedula
+            idUsuario: cedula,
+            nombre: inpNombre,
+            apellido: inpApellido,
+            fechaNacimiento: inpFechaNac,
+            idGrupo: inpIdGrupo
         })
             .then(res => {
                 mensaje.style.display = 'block';
-                if (res.data.message == "User schedule not found.") {
-                    mensaje.innerHTML = "No estas agendado.";
+                if (res.data.message == "User was registered successfully.") {
+                    mensaje.innerHTML = "Registrado correctamente.";
+                } else if (res.data.message == "Could not register user.") {
+                    mensaje.innerHTML = "Error de conexion con la base de datos.";
                 } else {
-                    mensaje.innerHTML = "Usted tiene que vacunarse el " + res.data.fechaV1 + " y el " + res.data.fechaV2 + ".";
+                    mensaje.innerHTML = "Ya existe un usuario con esta cédula.";
                 }
                 console.log(res);
             })

@@ -220,10 +220,30 @@ body{
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
 }
 
-.navigation ul li {
+.navigation > ul > li {
     display: inline-block;
+}
+
+.navigation > ul > li >ul {
+    display: none;
+    
+}
+
+.navigation > ul > li:hover > ul {
+    display: block;
+    background-color: #333;
+    position: fixed;
+    border-radius: 6px;
+}
+
+.navigation > ul > li > ul > li > a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.4s linear;
 }
 
 .activo{

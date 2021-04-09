@@ -25,7 +25,7 @@
                 <div class="sec-input">
                     <p id="mensaje-schedule" class="mensaje-schedule-registro"></p>
                     <label class="inp-registro" for="cedula">Ingrese su cédula</label>
-                    <input id="input-cedula" type="number" name="cedula" value="" onchange="onChange()">
+                    <input id="input-cedula" type="number" name="cedula" value="" onkeypress="return event.charCode >= 48" min="0">
                     <label class="inp-registro" for="nombre">Ingrese su Nombre</label>
                     <input id="input-nombre" type="text" name="nombre" value="" onchange="onChange()">
                     <label class="inp-registro" for="apellido">Ingrese su Apellido</label>
@@ -53,28 +53,25 @@
             <div class="container-header logo-nav-container">
                 <nav class="navigation-menu-form">
                     <ul class="navigation-form">
-                        <li id="btn1"><a onclick="carusel(1)"
-                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html">Home</a>
+                        <li id="btn1"><a onclick="carusel(0)"
+                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html">Inicio</a>
                         </li>
                         <li id="btn1"><a onclick="carusel(1)"
-                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/registro/registro.html">Sin
-                                Up</a>
+                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/register/register.html">Registro</a>
                         </li>
-                        <li id="btn1"><a onclick="carusel(1)"
-                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/schedule/schedule.html">Schedule</a>
+                        <li id="btn1"><a onclick="carusel(2)"
+                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/schedule/schedule.html">Agenda</a>
                         </li>
-                        <li id="btn2"><a onclick="carusel(2)"
-                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/scheduleCheck/scheduleCheck.html">ScheduleCheck</a>
+                        <li id="btn2"><a onclick="carusel(3)"
+                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/scheduleCheck/scheduleCheck.html">Consultar agenda</a>
                         </li>
-                        <li id="btn3"><a onclick="carusel(3)"
-                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/scheduleDelete/scheduleDelete.html">ScheduleDelete</a>
+                        <li id="btn3"><a onclick="carusel(4)"
+                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/scheduleDelete/scheduleDelete.html">Borrar agenda</a>
                         </li>
-                        <li id="btn4"><a onclick="carusel(4)"
-                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/countByGroup/countByGroup.html">Count
-                                by group</a></li>
-                        <li id="btn5"><a onclick="carusel(5)"
-                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/countByAge/countByAge.html">Count
-                                by age</a></li>
+                        <li id="btn4"><a onclick="carusel(5)"
+                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/countByGroup/countByGroup.html">Cant. por grupo</a></li>
+                        <li id="btn5"><a onclick="carusel(6)"
+                                href="file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/countByAge/countByAge.html">Cant. por edad</a></li>
                     </ul>
                 </nav>
             </div>
@@ -83,6 +80,6 @@
 </body>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="registro.js"></script>
+<script src="register.js"></script>
 
 </html>
