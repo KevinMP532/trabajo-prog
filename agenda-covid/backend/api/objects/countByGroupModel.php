@@ -1,10 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 class countByGroup
 {
 
     private $conn;
-
     public $group1Count;
     public $group2Count;
     public $group3Count;
@@ -28,10 +26,9 @@ class countByGroup
                 idGrupo = " . $counter;
 
             $stmt = $this->conn->prepare($query);
-
             $stmt->execute();
-
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            
             switch ($counter) {
                 case (1):
                     if ($row != null) {

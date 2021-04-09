@@ -1,20 +1,16 @@
 <?php
-
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-include_once '../config/database.php';
+include_once '../db/database.php';
 include_once '../objects/user.php';
 include_once '../objects/schedule.php';
 
 $database = new Database();
 $db = $database->getConnection();
-
 $user = new User($db);
-
-
 $data = json_decode(file_get_contents("php://input"));
 
 if ($data->idUsuario == null) {
@@ -30,7 +26,6 @@ if ($data->idUsuario == null) {
 }
 
 $user->idUsuario = $data->idUsuario;
-
 $user->login();
 
 if ($user->nombre != null) {
@@ -50,17 +45,14 @@ if ($user->nombre != null) {
         $schedule->idUsuario = $data->idUsuario;
         $userUpdate->setPhoneNumber();
         if ($schedule->schedule()) {
-            header("Access-Control-Allow-Origin: *");
             http_response_code(200);
             echo json_encode(array("message" => "User scheduled successufully"));
         }
     } else {
-        header("Access-Control-Allow-Origin: *");
         http_response_code(200);
         echo json_encode(array("message" => "User has already been scheduled"));
     }
 } else {
-    header("Access-Control-Allow-Origin: *");
     http_response_code(200);
     echo json_encode(array("message" => "User does not exist."));
 }

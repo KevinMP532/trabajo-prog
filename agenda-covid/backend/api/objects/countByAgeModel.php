@@ -1,10 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 class countByAge
 {
 
     private $conn;
-
     public $group1;
     public $group2;
     public $group3;
@@ -14,9 +12,9 @@ class countByAge
     {
         $this->conn = $db;
     }
+    
     function countByAge()
     {
-        $currentDate =  date('Y.m.d');
         $date18 = date('Y.m.d', strtotime("-18 years"));
         $date30 = date('Y.m.d', strtotime("-30 years"));
         $date50 = date('Y.m.d', strtotime("-50 years"));
@@ -27,11 +25,8 @@ class countByAge
                 case (1):
 
                     $query = "SELECT COUNT(fechaNacimiento) FROM usuario INNER JOIN agenda ON agenda.idUsuario=usuario.idUsuario WHERE fechaNacimiento BETWEEN '" . $date30 . "' AND '" . $date18 . "'";
-
                     $stmt = $this->conn->prepare($query);
-
                     $stmt->execute();
-
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     if ($row != null) {
@@ -43,11 +38,8 @@ class countByAge
                 case (2):
 
                     $query = "SELECT COUNT(fechaNacimiento) FROM usuario INNER JOIN agenda ON agenda.idUsuario=usuario.idUsuario WHERE fechaNacimiento BETWEEN '" . $date50 . "' AND '" . $date30 . "'";
-
                     $stmt = $this->conn->prepare($query);
-
                     $stmt->execute();
-
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     if ($row != null) {
@@ -59,11 +51,8 @@ class countByAge
                 case (3):
 
                     $query = "SELECT COUNT(fechaNacimiento) FROM usuario INNER JOIN agenda ON agenda.idUsuario=usuario.idUsuario WHERE fechaNacimiento BETWEEN '" . $date65 . "' AND '" . $date50 . "'";
-
                     $stmt = $this->conn->prepare($query);
-
                     $stmt->execute();
-
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     if ($row != null) {
