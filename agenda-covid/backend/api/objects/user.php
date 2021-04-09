@@ -65,36 +65,37 @@ class User
         return false;
     }
 
-    function singUp()
+    function signUp()
     {
 
         $query = "INSERT
             INTO
-                " . $this->table_name . "(idUsuario, nombre, apellido, fechaNacimiento, telefono, idGrupo, activo)
-            VALUES
-                idUsuario = :idUsuario
-                nombre = :nombre
-                apellido = :apellido
-                fechaNacimiento = :fechaNacimiento
-                telefono  = :telefono
-                idGrupo = :idGrupo
+                usuario
+            SET
+                idUsuario = :idUsuario,
+                nombre = :nombre,
+                apellido = :apellido,
+                fechaNacimiento = :fechaNacimiento,
+                telefono  = :telefono,
+                idGrupo = :idGrupo,
                 activo = :activo
             ";
 
         $stmt = $this->conn->prepare($query);
-    
+        $telefono = "";
+        $state = 1;
         $stmt->bindParam(':idUsuario', $this->idUsuario);
         $stmt->bindParam(':nombre', $this->nombre);
         $stmt->bindParam(':apellido', $this->apellido);
         $stmt->bindParam(':fechaNacimiento', $this->fechaNacimiento);
-        $stmt->bindParam(':telefono', "");
+        $stmt->bindParam(':telefono', $telefono);
         $stmt->bindParam(':idGrupo', $this->idGrupo);
-        $stmt->bindParam(':activo', 1);
-    
+        $stmt->bindParam(':activo', $state);
+
         if ($stmt->execute()) {
             return true;
         }
-    
+
         return false;
     }
 }
