@@ -12,13 +12,24 @@ let inpCedula = document.getElementById('input-cedula');
 inpCedula.addEventListener("input", function (e) {
     if (this.value.length > 8) {
         this.value = cedula
-    } 
+    }
     if (this.value.length === 8) {
         cedula = this.value
     } else {
         cedula = ""
     }
 });
+
+let inpNombre
+let inpApellido
+let inpFechaNac
+let inpIdGrupo
+onChange = () => {
+    inpNombre = document.getElementById('input-nombre').value;
+    inpApellido = document.getElementById('input-apellido').value;
+    inpFechaNac = document.getElementById('input-fechaNac').value;
+    inpIdGrupo = document.getElementById('input-grupo').value;
+}
 
 let body = document.getElementById('body')
 let divContForm = document.getElementById('container-form')
@@ -36,26 +47,30 @@ showMenu = () => {
 
 }
 
-let urlDelete = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleDelete.php";
-borrar = () => {
+
+let urlCheck = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleCheck.php";
+registrar = () => {
     mensaje.style.display = 'none';
-    if (cedula == "") {
+    if (cedula == "" && inpNombre == "" && inpApellido == "" && inpFechaNac == "" && inpIdGrupo == "") {
+        mensajeError.innerHTML = "Llena todos los campos";
+        mensajeError.style.display = 'block';
+    } else if (cedula == "") {
         mensajeError.innerHTML = "Escribe una cédula válida.";
+        console.log(inpNombre + inpApellido + inpFechaNac + inpIdGrupo)
         mensajeError.style.display = 'block';
     } else {
         mensajeError.innerHTML = "";
         mensajeError.style.display = 'none';
         loading.style.display = 'block';
-        axios.post(urlDelete, {
+        axios.post(urlCheck, {
             idUsuario: cedula
         })
             .then(res => {
                 mensaje.style.display = 'block';
-                if (res.data.message == "Schedule deleted successfully.") {
-                    mensaje.innerHTML = "Agenda eliminada correctamente.";
+                if (res.data.message == "User schedule not found.") {
+                    mensaje.innerHTML = "No estas agendado.";
                 } else {
-                    mensaje.style.textAlign = "center";
-                    mensaje.innerHTML = "No ha sido posible desagendarte, esto puede deberse a que no esta agendado, a que su cédula es incorrecta o a que ya transcurrio la primer fecha.";
+                    mensaje.innerHTML = "Usted tiene que vacunarse el " + res.data.fechaV1 + " y el " + res.data.fechaV2 + ".";
                 }
                 console.log(res);
             })

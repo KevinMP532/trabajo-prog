@@ -1,5 +1,5 @@
 var loading = document.getElementById('loading');
-var mensaje = document.getElementById('mensaje');
+var mensaje = document.getElementById('mensaje-schedule');
 var mensajeError = document.getElementById('error-message');
 var btnVerificar = document.getElementById('btn-verificar');
 var btnAgendar = document.getElementById('btn-agendar');
@@ -7,7 +7,6 @@ var lblCedula = document.getElementById('lbl-cedula');
 var lblTel = document.getElementById('lbl-tel');
 let inpCedula = document.getElementById('input-cedula');
 let inpTelefono = document.getElementById('input-telefono');
-let menu = document.getElementById('header')
 
 var form = document.getElementById('form');
 form.addEventListener('submit', function (e) {
@@ -38,11 +37,18 @@ inpTelefono.addEventListener("input", function (e) {
     }
 });
 
+let body = document.getElementById('body')
+let divContForm = document.getElementById('container-form')
+let menu = document.getElementById('header')
 showMenu = () => {
     if (menu.style.display == 'none') {
         menu.style.display = 'block'
+        divContForm.className = 'container-form-menu'
+        body.className = 'body-form-menu'
     } else {
         menu.style.display = 'none'
+        divContForm.className = 'container-form'
+        body.className = 'body-form'
     }
 
 }

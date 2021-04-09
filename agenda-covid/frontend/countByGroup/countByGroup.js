@@ -12,12 +12,18 @@ form.addEventListener('submit', function (e) {
     e.preventDefault();
 })
 
+let body = document.getElementById('body')
+let divContForm = document.getElementById('container-form')
 let menu = document.getElementById('header')
 showMenu = () => {
     if (menu.style.display == 'none') {
         menu.style.display = 'block'
+        divContForm.className = 'container-form-menu'
+        body.className = 'body-form-menu'
     } else {
         menu.style.display = 'none'
+        divContForm.className = 'container-form'
+        body.className = 'body-form'
     }
 
 }

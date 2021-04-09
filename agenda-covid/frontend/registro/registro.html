@@ -15,26 +15,38 @@
         <div id="container-form" class="container-form">
             <div class="container-head-forms">
                 <div class="container-title">
-                    <h1 class="title">Agendarse</h1>
+                    <h1 class="title">Registrarse</h1>
                 </div>
                 <div class="container-icon">
                     <i onclick="showMenu()" class="fas fa-bars icon-menu"></i>
                 </div>
             </div>
-            <form id="form">
-                <p id="mensaje-schedule"></p>
+            <form id="form" class="form-registro">
                 <div class="sec-input">
-                    <label id="lbl-cedula" for="cedula">Ingrese su cédula</label>
-                    <label id="lbl-tel" for="telefono" class="form-agendarse">Ingrese su teléfono</label>
-                    <input id="input-cedula" onkeypress="return event.charCode >= 48" min="0" placeholder="Ej: 53780034"
-                        type="number" name="cedula" value="">
-                    <input id="input-telefono" class="form-agendarse" onkeypress="return event.charCode >= 48" min="0"
-                        type="number" name="telefono" value="">
+                    <p id="mensaje-schedule"></p>
+                    <label for="cedula">Ingrese su cédula</label>
+                    <input id="input-cedula" type="number" name="cedula" value="" onchange="onChange()">
+                    <label for="nombre">Ingrese su Nombre</label>
+                    <input id="input-nombre" type="text" name="nombre" value="" onchange="onChange()">
+                    <label for="apellido">Ingrese su Apellido</label>
+                    <input id="input-apellido" type="text" name="apellido" value="" onchange="onChange()">
+                    <label for="fechaNac">Ingrese su fecha de nacimiento</label>
+                    <input id="input-fechaNac" type="date" name="fechaNac" value="" onchange="onChange()">
+                    <label for="grupo">Seleccione su grupo</label>
+                    <select id="input-grupo" name="grupo" onchange="onChange()">
+                        <option value="0">Ninguno</option>
+                        <option value="1">Personal CTI</option>
+                        <option value="2">Hisopadores</option>
+                        <option value="3">Personal Salud General</option>
+                        <option value="4">Personal Educacion</option>
+                        <option value="5">Bomberos</option>
+                        <option value="6">Policias</option>
+                        <option value="7">Personal Residencia</option>
+                    </select>
                 </div>
                 <label id="error-message"></label>
                 <p id="loading">cargando...</p>
-                <button id="btn-verificar" class="btn-form" onclick="verificar()">Verificar</button>
-                <button id="btn-agendar" class="btn-form form-agendarse" onclick="agendarse()">Agendar</button>
+                <button id="btn-registrar" class="btn-form" onclick="registrar()">Registrarme</button>
             </form>
         </div>
         <div id="header" class="header-form" style="display: none;">
@@ -71,6 +83,6 @@
 </body>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="schedule.js"></script>
+<script src="registro.js"></script>
 
 </html>

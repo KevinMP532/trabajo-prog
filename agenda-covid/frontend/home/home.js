@@ -9,9 +9,9 @@ let btn5 = document.getElementById("btn5")
 
 var controller = new ScrollMagic.Controller();
 var scene
-scene = new ScrollMagic.Scene({ triggerElement: '.sec-home' }).setClassToggle('.logo', 'logo-activo').addTo(controller);
+scene = new ScrollMagic.Scene({ triggerElement: '.sec-home' }).setClassToggle('.logo-id', 'logo-activo').addTo(controller);
 
-scene = new ScrollMagic.Scene({ triggerElement: '.sec-1' }).setClassToggle('.logo', 'logo').addTo(controller);
+scene = new ScrollMagic.Scene({ triggerElement: '.sec-1' }).setClassToggle('.logo-id', 'logo').addTo(controller);
 scene = new ScrollMagic.Scene({ triggerElement: '.sec-1' }).setClassToggle(btn1, 'activo').addTo(controller);
 scene = new ScrollMagic.Scene({ triggerElement: '.sec-1' }).setClassToggle(btnDown, 'btn-home-r').addTo(controller);
 scene = new ScrollMagic.Scene({ triggerElement: '.sec-1' }).setClassToggle(btnUp, 'btn-home-l').addTo(controller);
@@ -36,82 +36,44 @@ function carusel(numero) {
     num = numero
     switch (numero) {
         case 0:
-            /*             btn1.className = "inactivo";
-                        btn2.className = "inactivo";
-                        btn3.className = "inactivo";
-                        btn4.className = "inactivo";
-                        btn5.className = "inactivo"; */
             window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#home";
-            /*             btnUp.style.display = "none";
-                        btnDown.className = "btn-home-down"; */
             break;
 
         case 1:
-            /*             btn1.className = "activo";
-                        btn2.className = "inactivo";
-                        btn3.className = "inactivo";
-                        btn4.className = "inactivo";
-                        btn5.className = "inactivo"; */
             window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#schedule";
-            /*             btnUp.style.display = "block";
-                        btnDown.style.display = "block";
-                        btnUp.className = "btn-home-l";
-                        btnDown.className = "btn-home-r"; */
             break;
 
         case 2:
-            /*             btn1.className = "inactivo";
-                        btn2.className = "activo";
-                        btn3.className = "inactivo";
-                        btn4.className = "inactivo";
-                        btn5.className = "inactivo"; */
             window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#scheduleCheck";
-            /*             btnUp.style.display = "block";
-                        btnDown.style.display = "block";
-                        btnUp.className = "btn-home-l";
-                        btnDown.className = "btn-home-r"; */
             break;
 
         case 3:
-            /*             btn1.className = "inactivo";
-                        btn2.className = "inactivo";
-                        btn3.className = "activo";
-                        btn4.className = "inactivo";
-                        btn5.className = "inactivo"; */
             window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#scheduleDelete";
-            /*             btnUp.style.display = "block";
-                        btnDown.style.display = "block";
-                        btnUp.className = "btn-home-l";
-                        btnDown.className = "btn-home-r"; */
             break;
 
         case 4:
-            /*             btn1.className = "inactivo";
-                        btn2.className = "inactivo";
-                        btn3.className = "inactivo";
-                        btn4.className = "activo";
-                        btn5.className = "inactivo"; */
             window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#countByGroup";
-            /*             btnUp.style.display = "block";
-                        btnDown.style.display = "block";
-                        btnUp.className = "btn-home-l";
-                        btnDown.className = "btn-home-r"; */
             break;
 
         case 5:
-            /*             btn1.className = "inactivo";
-                        btn2.className = "inactivo";
-                        btn3.className = "inactivo";
-                        btn4.className = "inactivo";
-                        btn5.className = "activo"; */
             window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#countByAge"
-            /*             btnDown.style.display = "none";
-                        btnUp.className = "btn-home-up" */
             break;
     }
 }
 
 down = () => {
+    if (btn1.className == "activo") {
+        num = 1
+    } else if (btn2.className == "activo") {
+        num = 2
+    } else if (btn3.className == "activo") {
+        num = 3
+    } else if (btn4.className == "activo") {
+        num = 4
+    } else if (btn5.className == "activo") {
+        num = 5
+    }
+
     num = num + 1
     if (num === 6) {
         num = 5
@@ -120,6 +82,17 @@ down = () => {
 }
 
 up = () => {
+    if (btn1.className == "activo") {
+        num = 1
+    } else if (btn2.className == "activo") {
+        num = 2
+    } else if (btn3.className == "activo") {
+        num = 3
+    } else if (btn4.className == "activo") {
+        num = 4
+    } else if (btn5.className == "activo") {
+        num = 5
+    }
     if (num === 0) {
         num = 4
     } else {

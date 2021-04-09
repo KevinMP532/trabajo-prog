@@ -1,5 +1,5 @@
 var loading = document.getElementById('loading');
-var mensaje = document.getElementById('mensaje');
+var mensaje = document.getElementById('mensaje-schedule');
 var mensajeError = document.getElementById('error-message');
 
 var form = document.getElementById('form');
@@ -20,12 +20,18 @@ inpCedula.addEventListener("input", function (e) {
     }
 });
 
+let body = document.getElementById('body')
+let divContForm = document.getElementById('container-form')
 let menu = document.getElementById('header')
 showMenu = () => {
     if (menu.style.display == 'none') {
         menu.style.display = 'block'
+        divContForm.className = 'container-form-menu'
+        body.className = 'body-form-menu'
     } else {
         menu.style.display = 'none'
+        divContForm.className = 'container-form'
+        body.className = 'body-form'
     }
 
 }
