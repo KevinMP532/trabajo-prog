@@ -20,10 +20,10 @@ inpCedula.addEventListener("input", function (e) {
     }
 });
 
-let inpNombre
-let inpApellido
-let inpFechaNac
-let inpIdGrupo
+let inpNombre = ""
+let inpApellido = ""
+let inpFechaNac = ""
+let inpIdGrupo = ""
 onChange = () => {
     inpNombre = document.getElementById('input-nombre').value;
     inpApellido = document.getElementById('input-apellido').value;
@@ -51,7 +51,7 @@ showMenu = () => {
 let urlCheck = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleCheck.php";
 registrar = () => {
     mensaje.style.display = 'none';
-    if (cedula == "" && inpNombre == "" && inpApellido == "" && inpFechaNac == "" && inpIdGrupo == "") {
+    if (inpNombre == "" || inpApellido == "" || inpFechaNac == "" || inpIdGrupo == "") {
         mensajeError.innerHTML = "Llena todos los campos";
         mensajeError.style.display = 'block';
     } else if (cedula == "") {
