@@ -14,12 +14,10 @@ $user = new User($db);
 $data = json_decode(file_get_contents("php://input"));
 
 if ($data->idUsuario == null) {
-    header("Access-Control-Allow-Origin: *");
     http_response_code(200);
     echo json_encode(array("message" => "No value for 'idUsuario' was provided"));
     return false;
 } else if ($data->telefono == null) {
-    header("Access-Control-Allow-Origin: *");
     http_response_code(200);
     echo json_encode(array("message" => "No value for 'telefono' was provided"));
     return false;
