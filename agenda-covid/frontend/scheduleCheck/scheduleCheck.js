@@ -55,6 +55,7 @@ consultar = () => {
                     mensaje.innerHTML = "No estas agendado.";
                 } else {
                     mensaje.innerHTML = "Usted tiene que vacunarse el " + res.data.fechaV1 + " y el " + res.data.fechaV2 + ".";
+                    inpCedula.value = ""
                 }
                 console.log(res);
             })

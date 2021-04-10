@@ -12,7 +12,7 @@ let inpCedula = document.getElementById('input-cedula');
 inpCedula.addEventListener("input", function (e) {
     if (this.value.length > 8) {
         this.value = cedula
-    } 
+    }
     if (this.value.length === 8) {
         cedula = this.value
     } else {
@@ -53,6 +53,7 @@ borrar = () => {
                 mensaje.style.display = 'block';
                 if (res.data.message == "Schedule deleted successfully.") {
                     mensaje.innerHTML = "Agenda eliminada correctamente.";
+                    inpCedula.value = ""
                 } else {
                     mensaje.style.textAlign = "center";
                     mensaje.innerHTML = "No ha sido posible desagendarte, esto puede deberse a que no esta agendado, a que su cédula es incorrecta o a que ya transcurrio la primer fecha.";

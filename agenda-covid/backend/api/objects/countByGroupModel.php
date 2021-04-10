@@ -1,10 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 class countByGroup
 {
 
     private $conn;
-
     public $group1Count;
     public $group2Count;
     public $group3Count;
@@ -23,15 +21,14 @@ class countByGroup
 
             $query = "SELECT COUNT(idGrupo)
             FROM
-                usuario
+                usuario INNER JOIN agenda ON agenda.idUsuario=usuario.idUsuario
             WHERE
                 idGrupo = " . $counter;
 
             $stmt = $this->conn->prepare($query);
-
             $stmt->execute();
-
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            
             switch ($counter) {
                 case (1):
                     if ($row != null) {

@@ -4,7 +4,7 @@
 }
 
 form{
-    height: 30.5%;
+    height: auto;
     background-color: white;
     box-shadow: 0 0 20px #333;
     padding: 20px;
@@ -13,10 +13,6 @@ form{
     justify-content: center;
     align-content: center;
     flex-direction: column;
-}
-
-.form-registro{
-    height: auto;
 }
 
 .form-cant{

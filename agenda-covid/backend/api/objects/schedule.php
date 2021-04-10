@@ -1,10 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 class Schedule
 {
 
     private $conn;
-
     public $idUsuario;
     public $fechaV1;
     public $fechaV2;
@@ -21,7 +19,6 @@ class Schedule
                 idUsuario=:idUsuario, fechaV1=:fechaV1, fechaV2=:fechaV2";
 
         $stmt = $this->conn->prepare($query);
-
         $stmt->bindParam(":idUsuario", $this->idUsuario);
         $stmt->bindParam(":fechaV1", $this->fechaV1);
         $stmt->bindParam(":fechaV2", $this->fechaV2);
@@ -29,7 +26,6 @@ class Schedule
         if ($stmt->execute()) {
             return true;
         }
-
         return false;
     }
 
@@ -45,11 +41,8 @@ class Schedule
             ";
 
         $stmt = $this->conn->prepare($query);
-
         $stmt->bindParam(1, $this->idUsuario);
-
         $stmt->execute();
-
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($row != null) {
@@ -63,17 +56,13 @@ class Schedule
 
     function Scheduledelete()
     {
-
         $query = "DELETE FROM agenda WHERE idUsuario = ?";
-
         $stmt = $this->conn->prepare($query);
-
         $stmt->bindParam(1, $this->idUsuario);
 
         if ($stmt->execute()) {
             return true;
         }
-
         return false;
     }
 

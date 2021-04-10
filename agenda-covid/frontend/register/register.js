@@ -25,10 +25,10 @@ let apellido = ""
 let fechaNac = ""
 let idGrupo = ""
 onChange = () => {
-    nombre = document.getElementById('input-nombre').value;
-    apellido = document.getElementById('input-apellido').value;
-    fechaNac = document.getElementById('input-fechaNac').value;
-    idGrupo = document.getElementById('input-grupo').value;
+    nombre = document.getElementById('input-nombre');
+    apellido = document.getElementById('input-apellido');
+    fechaNac = document.getElementById('input-fechaNac');
+    idGrupo = document.getElementById('input-grupo');
 }
 
 let body = document.getElementById('body')
@@ -49,7 +49,7 @@ showMenu = () => {
 
 let inpFechaNac = document.getElementById('input-fechaNac');
 const data = new Date();
-let anioMin = data.getUTCFullYear() - 100
+let anioMin = data.getUTCFullYear() - 65
 let anio = data.getUTCFullYear() - 18
 let mes = data.getUTCMonth() + 1
 let dia = data.getUTCDate()
@@ -67,17 +67,23 @@ if (dia >= 1 && dia <= 9) {
 }
 let fechaActual = anio + "-" + mesActual + "-" + diaActual
 let fechaMin = anioMin + "-" + "01" + "-" + "01"
+inpFechaNac.max = fechaActual
 inpFechaNac.min = fechaMin
-
 
 let urlCheck = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/register.php";
 registrar = () => {
     mensaje.style.display = 'none';
-    if (nombre == "" || apellido == "" || fechaNac == "" || idGrupo == "") {
+    if (nombre.value == "" || apellido.value == "" || fechaNac.value == "" || idGrupo.value == "") {
         mensajeError.innerHTML = "Llena todos los campos";
         mensajeError.style.display = 'block';
     } else if (cedula == "") {
         mensajeError.innerHTML = "Escribe una cédula válida.";
+        mensajeError.style.display = 'block';
+    } else if (fechaNac.value > fechaActual) {
+        mensajeError.innerHTML = "Solo mayores de 18 años";
+        mensajeError.style.display = 'block';
+    } else if (fechaNac.value < fechaMin) {
+        mensajeError.innerHTML = "Solo menores de 65 años";
         mensajeError.style.display = 'block';
     } else {
         mensajeError.innerHTML = "";
@@ -85,15 +91,21 @@ registrar = () => {
         loading.style.display = 'block';
         axios.post(urlCheck, {
             idUsuario: cedula,
-            nombre: nombre,
-            apellido: apellido,
-            fechaNacimiento: fechaNac,
-            idGrupo: idGrupo
+            nombre: nombre.value,
+            apellido: apellido.value,
+            fechaNacimiento: fechaNac.value,
+            idGrupo: idGrupo.value
         })
             .then(res => {
                 mensaje.style.display = 'block';
                 if (res.data.message == "User was registered successfully.") {
                     mensaje.innerHTML = "Registrado correctamente.";
+                    cedula = ""
+                    inpCedula.value = ""
+                    nombre.value = ""
+                    apellido.value = ""
+                    fechaNac.value = ""
+                    idGrupo.value = ""
                 } else if (res.data.message == "Could not register user.") {
                     mensaje.innerHTML = "Error de conexion con la base de datos.";
                 } else {

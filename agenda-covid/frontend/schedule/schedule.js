@@ -53,7 +53,7 @@ showMenu = () => {
 
 }
 
-let urlVerify = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/verifyID.php";
+let URL = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/schedule.php";
 verificar = () => {
     mensaje.style.display = 'none';
     if (cedula == "") {
@@ -64,7 +64,7 @@ verificar = () => {
         mensajeError.style.display = 'none';
         mensaje.innerHTML = "";
         loading.style.display = 'block';
-        axios.post(urlVerify, {
+        axios.post(URL, {
             idUsuario: cedula
         })
             .then(res => {
@@ -91,7 +91,6 @@ verificar = () => {
     }
 }
 
-let urlSchedule = "http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/schedule.php"
 agendarse = () => {
     mensaje.style.display = 'none';
     if (telefono == "") {
@@ -101,7 +100,7 @@ agendarse = () => {
         mensajeError.innerHTML = "";
         mensajeError.style.display = 'none';
         loading.style.display = 'block';
-        axios.post(urlSchedule, {
+        axios.post(URL, {
             idUsuario: cedula,
             telefono: telefono
         })
@@ -109,6 +108,10 @@ agendarse = () => {
                 mensaje.style.display = 'block';
                 if (res.data.message == "User scheduled successufully") {
                     mensaje.innerHTML = "Agendado correctamente.";
+                    inpCedula.value = ""
+                    cedula = ""
+                    inpTelefono.value = ""
+                    telefono = ""
                 } else {
                     mensaje.innerHTML = "Ya estas agendado.";
                 }

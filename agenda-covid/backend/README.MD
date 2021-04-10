@@ -8,7 +8,7 @@ El proyecto debe de estar dentro de la carptea xampp/htdocs para ejecutarlo.
 ## Verificar si un usuario existe
 #### Endpoint: 
 ```yaml
-http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/verifyID.php
+http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/schedule.php
 ```
 #### Request:
 ```yaml
@@ -29,10 +29,37 @@ http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/verifyID.php
     "message": "User does not exist."
 }
 ```
+## Registro
+#### Endpoint: 
+```yaml
+http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/register.php
+```
+#### Request:
+```yaml
+{
+    "idUsuario": "12345678",
+    "nombre": "nombre",
+    "apellido": "apellido",
+    "fechaNacimiento": "2021-4-8",
+    "idGrupo": "3"
+}
+```
+#### Response(Normal):
+```yaml
+{
+    "message": "User was registered successfully."
+}
+```
+#### Response(Usuario ya registrado):
+```yaml
+{
+    "message": "User already exists."
+}
+```
 ## Agendarme ingresando CI
 #### Endpoint: 
 ```yaml
-http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/schedule.php
+http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/schedule.php
 ```
 #### Request:
 ```yaml
@@ -56,7 +83,7 @@ http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/schedule.php
 ## Consultar agenda
 #### Endpoint: 
 ```yaml
-http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleCheck.php
+http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleCheck.php
 ```
 #### Request:
 ```yaml
@@ -75,7 +102,7 @@ http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleCheck.p
 ## Borrar agenda
 #### Endpoint: 
 ```yaml
-http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleDelete.php
+http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleDelete.php
 ```
 #### Request:
 ```yaml
@@ -99,7 +126,7 @@ http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleDelete.
 #### Endpoint:
 ```yaml
 {
- http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/countByGroup.php
+http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/countByGroup.php
 }
 ```
 #### Response:
@@ -119,7 +146,7 @@ http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/scheduleDelete.
 #### Endpoint:
 ```yaml
 {
- http://localhost/trabajo-prog/agenda-covid/backend/api/endpoints/countByAge.php
+http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/countByAge.php
 }
 ```
 #### Response:
