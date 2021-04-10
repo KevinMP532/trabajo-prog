@@ -54,6 +54,7 @@ borrar = () => {
                 if (res.data.message == "Schedule deleted successfully.") {
                     mensaje.innerHTML = "Agenda eliminada correctamente.";
                     inpCedula.value = ""
+                    cedula = ""
                 } else {
                     mensaje.style.textAlign = "center";
                     mensaje.innerHTML = "No ha sido posible desagendarte, esto puede deberse a que no esta agendado, a que su cédula es incorrecta o a que ya transcurrio la primer fecha.";
