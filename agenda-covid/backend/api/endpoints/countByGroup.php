@@ -15,7 +15,6 @@ $groupCount = new countByGroup($db);
 
 $groupCount->countByGroup();
 
-
 $groupCount_arr = array(
     "Personal_CTI" => $groupCount->group1Count,
     "Hisopadores" => $groupCount->group2Count,
