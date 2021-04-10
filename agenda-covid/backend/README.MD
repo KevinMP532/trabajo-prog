@@ -41,7 +41,7 @@ http://localhost/progweb/trabajo-prog/agenda-covid/backend/api/endpoints/registe
     "nombre": "nombre",
     "apellido": "apellido",
     "fechaNacimiento": "2021-4-8",
-    "idGrupo": ""
+    "idGrupo": "3"
 }
 ```
 #### Response(Normal):
