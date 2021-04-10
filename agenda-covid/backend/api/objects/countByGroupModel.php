@@ -21,7 +21,7 @@ class countByGroup
 
             $query = "SELECT COUNT(idGrupo)
             FROM
-                usuario
+                usuario INNER JOIN agenda ON agenda.idUsuario=usuario.idUsuario
             WHERE
                 idGrupo = " . $counter;
 
