@@ -1,4 +1,5 @@
 <?php
+//This endpoint is obsolete. schedule.php has taken over this function.
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json; charset=UTF-8");

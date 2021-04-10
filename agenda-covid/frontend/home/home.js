@@ -37,31 +37,31 @@ function carusel(numero) {
     num = numero
     switch (numero) {
         case 0:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#home";
+            window.location = "../home/home.html#home";
             break;
 
         case 1:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#register";
+            window.location = "../home/home.html#register";
             break;
 
         case 2:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#schedule";
+            window.location = "../home/home.html#schedule";
             break;
 
         case 3:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#scheduleCheck";
+            window.location = "../home/home.html#scheduleCheck";
             break;
 
         case 4:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#scheduleDelete";
+            window.location = "../home/home.html#scheduleDelete";
             break;
 
         case 5:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#countByGroup"
+            window.location = "../home/home.html#countByGroup"
             break;
 
         case 6:
-            window.location = "file:///C:/xampp/htdocs/progweb/trabajo-prog/agenda-covid/frontend/home/home.html#countByAge"
+            window.location = "../home/home.html#countByAge"
             break;
     }
 }

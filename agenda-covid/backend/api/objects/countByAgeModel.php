@@ -6,13 +6,12 @@ class countByAge
     public $group1;
     public $group2;
     public $group3;
-    public $group4;
 
     public function __construct($db)
     {
         $this->conn = $db;
     }
-    
+
     function countByAge()
     {
         $date18 = date('Y.m.d', strtotime("-18 years"));
