@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-error_reporting(E_ALL ^ E_WARNING); 
+error_reporting(E_ALL ^ E_NOTICE); 
 include_once '../db/database.php';
 include_once '../objects/user.php';
 include_once '../objects/schedule.php';
