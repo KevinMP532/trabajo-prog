@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-
+error_reporting(0);
 include_once '../db/database.php';
 include_once '../objects/countByAgeModel.php';
 
@@ -19,4 +19,3 @@ $groupCount_arr = array(
 );
 http_response_code(200);
 echo json_encode($groupCount_arr);
-
