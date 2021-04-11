@@ -72,7 +72,7 @@ verificar = () => {
                 if (res.data.message == "User does not exist.") {
                     mensaje.innerHTML = "No estás registrado como usuario.";
                 } else {
-                    mensaje.innerHTML = "Welcome " + res.data.nombre + " have a nice day.";
+                    mensaje.innerHTML = "Bienvenido " + res.data.nombre + ", que tengas un lindo dia.";
                     inpCedula.style.display = 'none';
                     inpTelefono.style.display = 'block';
                     lblCedula.style.display = 'none';
